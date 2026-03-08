@@ -1,15 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Maleah';
+  src: url('/fonts/Maleah.woff2') format('woff2'),
+       url('/fonts/Maleah.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  /* Placeholder fallback if font is missing */
+}
 
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+  /* Maleah takes the role of primary branding/titles */
+  --font-primary: 'Maleah', ui-serif, Georgia, serif;
 
-  --color-cream: #F8F5EE;
-  --color-blue: #2B3EA0;
-  --color-blue-light: #4256C6;
-  --color-dark: #1E1B18;
-  --color-dark-soft: #2C2825;
+  --color-ivory: #F2EFE8;
+  --color-dark-brown: #1F1A17;
+  --color-blue: #2E47B8;
+  --color-mineral-grey: #8A8782;
 }
 
 @layer base {
@@ -18,15 +27,21 @@
   }
 
   body {
-    @apply bg-cream text-dark font-sans antialiased;
+    @apply bg-ivory text-dark-brown antialiased;
+    font-family: 'Maleah', 'Inter', sans-serif;
+    letter-spacing: 0.02em;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-serif;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-primary font-normal tracking-wide uppercase;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Force remove border radius globally to enforce architectural rigor */
+  * {
+    border-radius: 0 !important;
   }
 }

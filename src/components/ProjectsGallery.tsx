@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
 
 const PROJECTS = [
     {
@@ -33,34 +32,29 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
     return (
         <motion.div
             ref={cardRef}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="group relative cursor-pointer"
         >
-            <div className="overflow-hidden aspect-[4/5] bg-dark/10">
+            <div className="overflow-hidden aspect-[4/5] bg-mineral-grey/10 mb-8">
                 <motion.img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover origin-center"
-                    initial={{ scale: 1.1 }}
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    initial={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/10 transition-colors duration-500" />
             </div>
 
-            <div className="mt-6 flex justify-between items-start">
-                <div>
-                    <span className="text-xs uppercase tracking-widest text-blue mb-2 block">{project.category}</span>
-                    <h3 className="font-serif text-2xl text-dark">{project.title}</h3>
-                    <p className="text-sm text-dark/60 mt-2 max-w-sm">{project.description}</p>
+            <div className="flex flex-col gap-2">
+                <div className="flex justify-between items-baseline mb-2">
+                    <span className="text-xs uppercase tracking-[0.2em] text-mineral-grey">{project.category}</span>
+                    <span className="text-xs text-mineral-grey tracking-widest">{project.id}</span>
                 </div>
-
-                <div className="w-10 h-10 rounded-full border border-dark/10 flex items-center justify-center transform group-hover:bg-dark group-hover:text-cream group-hover:border-dark transition-all duration-300">
-                    <ArrowUpRight strokeWidth={1.5} size={18} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
+                <h3 className="font-primary text-2xl text-dark-brown group-hover:text-blue transition-colors duration-500">{project.title}</h3>
+                <p className="text-sm text-mineral-grey mt-2 max-w-sm leading-relaxed">{project.description}</p>
             </div>
         </motion.div>
     )
@@ -73,22 +67,21 @@ export function ProjectsGallery() {
         offset: ["start end", "end start"]
     })
 
-    const yParallax = useTransform(scrollYProgress, [0, 1], [100, -100])
+    const yParallax = useTransform(scrollYProgress, [0, 1], [80, -80])
 
     return (
-        <section ref={containerRef} className="py-24 px-6 md:px-12 bg-cream">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-end mb-20 border-b border-dark/20 pb-8">
-                    <h2 className="font-serif text-4xl text-dark">Sélection</h2>
-                    <span className="text-sm font-sans uppercase tracking-widest text-dark/60">01 — 03</span>
+        <section ref={containerRef} className="py-24 md:py-40 px-6 md:px-12 bg-ivory">
+            <div className="max-w-[90rem] mx-auto">
+                <div className="flex justify-between items-end mb-24 border-b border-mineral-grey/20 pb-8">
+                    <h2 className="font-primary text-3xl md:text-5xl text-dark-brown tracking-wide">SÉLECTION</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-x-12 md:gap-y-32">
                     {PROJECTS.map((project, index) => (
                         <motion.div
                             key={project.id}
                             style={{ y: index % 2 !== 0 ? yParallax : 0 }}
-                            className={index === 1 ? "md:mt-32" : ""}
+                            className={index === 1 ? "md:mt-40" : ""}
                         >
                             <ProjectCard project={project} />
                         </motion.div>
