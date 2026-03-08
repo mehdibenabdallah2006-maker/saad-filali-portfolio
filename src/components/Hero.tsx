@@ -18,12 +18,12 @@ function AbstractMaterialSculpture() {
             <mesh ref={meshRef} position={[0, 0, 0]} castShadow receiveShadow>
                 <torusKnotGeometry args={[1, 0.3, 128, 32]} />
                 <meshPhysicalMaterial
-                    color="#D9CDB8" // Sand
-                    metalness={0.1}
-                    roughness={0.4}
-                    clearcoat={0.5}
-                    clearcoatRoughness={0.2}
-                    envMapIntensity={1}
+                    color="#4256C6" // Blue Light
+                    metalness={0.2}
+                    roughness={0.3}
+                    clearcoat={0.8}
+                    clearcoatRoughness={0.1}
+                    envMapIntensity={1.2}
                 />
             </mesh>
         </Float>
@@ -32,12 +32,13 @@ function AbstractMaterialSculpture() {
 
 export function Hero() {
     return (
-        <section className="relative w-full h-screen bg-ivory overflow-hidden flex items-center justify-center">
+        <section className="relative w-full h-screen bg-dark overflow-hidden flex items-center justify-center">
             {/* 3D Canvas Background */}
             <div className="absolute inset-0 z-0">
                 <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
                     <ambientLight intensity={0.5} />
-                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
+                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1.5} castShadow />
+                    <pointLight position={[-10, -5, -10]} color="#2B3EA0" intensity={1} />
                     <PresentationControls
                         global
                         snap={true}
@@ -47,20 +48,20 @@ export function Hero() {
                     >
                         <AbstractMaterialSculpture />
                     </PresentationControls>
-                    <ContactShadows position={[0, -1.5, 0]} opacity={0.4} scale={10} blur={2} far={4} color="#2A2A2A" />
+                    <ContactShadows position={[0, -1.5, 0]} opacity={0.6} scale={10} blur={2} far={4} color="#000000" />
                     <Environment preset="city" />
                 </Canvas>
             </div>
 
             {/* Text Overlay */}
             <div className="relative z-10 pointer-events-none flex flex-col items-center justify-center text-center px-4">
-                <h1 className="text-5xl md:text-8xl font-serif text-charcoal tracking-tight">
+                <h1 className="text-5xl md:text-8xl font-serif text-cream tracking-tight">
                     SAAD FILALI
                 </h1>
-                <h2 className="text-3xl md:text-5xl font-serif text-charcoal/80 mt-2 tracking-widest">
+                <h2 className="text-3xl md:text-5xl font-serif text-cream/90 mt-2 tracking-widest">
                     STUDIO
                 </h2>
-                <p className="mt-8 text-charcoal/60 font-sans tracking-widest uppercase text-sm md:text-base max-w-md">
+                <p className="mt-8 text-cream/60 font-sans tracking-widest uppercase text-sm md:text-base max-w-md">
                     Matière • Objet • Espace
                 </p>
             </div>

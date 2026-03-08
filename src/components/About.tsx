@@ -10,15 +10,9 @@ export function About() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Split text into words (simulation for GSAP reveal)
-            // A full implementation might use SplitText or similar, but we'll do line/opacity fades here for simplicity/performance
-
             gsap.fromTo(
                 '.reveal-text',
-                {
-                    opacity: 0,
-                    y: 40
-                },
+                { opacity: 0, y: 40 },
                 {
                     opacity: 1,
                     y: 0,
@@ -53,28 +47,28 @@ export function About() {
     }, [])
 
     return (
-        <section ref={containerRef} className="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-ivory">
-            <div className="reveal-line h-[1px] bg-charcoal/20 mb-16" />
+        <section ref={containerRef} className="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-cream">
+            <div className="reveal-line h-[1px] bg-dark/20 mb-16" />
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div className="md:col-span-1">
-                    <h2 className="reveal-text font-serif text-2xl text-charcoal">Vision</h2>
+                    <h2 className="reveal-text font-serif text-2xl text-dark">Vision</h2>
                 </div>
 
                 <div className="md:col-span-3">
-                    <p ref={textRef} className="text-2xl md:text-4xl font-sans text-charcoal leading-snug lg:leading-normal font-light">
+                    <p ref={textRef} className="text-2xl md:text-4xl font-sans text-dark leading-snug lg:leading-normal font-light">
                         <span className="reveal-text block mb-4">
                             Un studio de design global intervenant sur le design d'objets, le mobilier, la direction artistique et le design d'espace.
                         </span>
-                        <span className="reveal-text block text-charcoal/70">
+                        <span className="reveal-text block text-dark/70">
                             Nous réinterprétons les savoir-faire artisanaux et les matériaux méditerranéens dans un langage contemporain, minimal et résolument tactile.
                         </span>
                     </p>
 
                     <div className="mt-16 grid grid-cols-2 gap-8 text-sm uppercase tracking-widest font-sans reveal-text">
                         <div>
-                            <h3 className="mb-4 text-terracotta border-b border-terracotta/20 pb-2 inline-block">Matières de Prédilection</h3>
-                            <ul className="space-y-2 text-charcoal/60">
+                            <h3 className="mb-4 text-blue border-b border-blue/20 pb-2 inline-block">Matières de Prédilection</h3>
+                            <ul className="space-y-2 text-dark/60">
                                 <li>Zellige</li>
                                 <li>Céramique</li>
                                 <li>Cuivre & Laiton</li>
@@ -82,8 +76,8 @@ export function About() {
                             </ul>
                         </div>
                         <div>
-                            <h3 className="mb-4 text-olive border-b border-olive/20 pb-2 inline-block">Valeurs</h3>
-                            <ul className="space-y-2 text-charcoal/60">
+                            <h3 className="mb-4 text-blue border-b border-blue/20 pb-2 inline-block">Valeurs</h3>
+                            <ul className="space-y-2 text-dark/60">
                                 <li>Chaleureux</li>
                                 <li>Tactile</li>
                                 <li>Minimaliste</li>

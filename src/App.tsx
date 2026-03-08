@@ -4,9 +4,9 @@ import { ProjectsGallery } from './components/ProjectsGallery'
 
 function App() {
   return (
-    <main className="min-h-screen bg-ivory font-sans text-charcoal">
+    <main className="min-h-screen bg-cream font-sans text-dark">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-center mix-blend-difference text-ivory">
+      <nav className="fixed top-0 w-full z-50 py-6 px-6 md:px-12 flex justify-between items-center mix-blend-difference text-cream">
         <div className="font-serif tracking-widest text-sm">
           S. F. S.
         </div>
@@ -23,9 +23,9 @@ function App() {
       <ProjectsGallery />
 
       {/* Footer */}
-      <footer className="py-12 bg-charcoal text-ivory text-center px-6">
+      <footer className="py-12 bg-dark text-cream text-center px-6">
         <p className="font-serif text-2xl mb-8">Saad Filali Studio</p>
-        <p className="text-sm font-sans text-ivory/60">
+        <p className="text-sm font-sans text-cream/60">
           © {new Date().getFullYear()} — Matière, Objet, Espace.
         </p>
       </footer>

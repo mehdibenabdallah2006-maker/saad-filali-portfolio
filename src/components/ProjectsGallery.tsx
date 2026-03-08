@@ -21,7 +21,7 @@ const PROJECTS = [
         id: '03',
         title: 'Retail Zellige',
         category: 'Scénographie',
-        description: 'Une boutique réinterprétant les codes de l\'artisanat marocain.',
+        description: "Une boutique réinterprétant les codes de l'artisanat marocain.",
         image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600'
     }
 ]
@@ -38,7 +38,7 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
             transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
             className="group relative cursor-pointer"
         >
-            <div className="overflow-hidden aspect-[4/5] bg-sand">
+            <div className="overflow-hidden aspect-[4/5] bg-dark/10">
                 <motion.img
                     src={project.image}
                     alt={project.title}
@@ -48,17 +48,17 @@ function ProjectCard({ project }: { project: typeof PROJECTS[0] }) {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                 />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/10 transition-colors duration-500" />
             </div>
 
             <div className="mt-6 flex justify-between items-start">
                 <div>
-                    <span className="text-xs uppercase tracking-widest text-terracotta mb-2 block">{project.category}</span>
-                    <h3 className="font-serif text-2xl text-charcoal">{project.title}</h3>
-                    <p className="text-sm text-charcoal/60 mt-2 max-w-sm">{project.description}</p>
+                    <span className="text-xs uppercase tracking-widest text-blue mb-2 block">{project.category}</span>
+                    <h3 className="font-serif text-2xl text-dark">{project.title}</h3>
+                    <p className="text-sm text-dark/60 mt-2 max-w-sm">{project.description}</p>
                 </div>
 
-                <div className="w-10 h-10 rounded-full border border-charcoal/10 flex items-center justify-center transform group-hover:bg-charcoal group-hover:text-ivory group-hover:border-charcoal transition-all duration-300">
+                <div className="w-10 h-10 rounded-full border border-dark/10 flex items-center justify-center transform group-hover:bg-dark group-hover:text-cream group-hover:border-dark transition-all duration-300">
                     <ArrowUpRight strokeWidth={1.5} size={18} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
             </div>
@@ -76,11 +76,11 @@ export function ProjectsGallery() {
     const yParallax = useTransform(scrollYProgress, [0, 1], [100, -100])
 
     return (
-        <section ref={containerRef} className="py-24 px-6 md:px-12 bg-ivory">
+        <section ref={containerRef} className="py-24 px-6 md:px-12 bg-cream">
             <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-end mb-20 border-b border-charcoal/20 pb-8">
-                    <h2 className="font-serif text-4xl text-charcoal">Sélection</h2>
-                    <span className="text-sm font-sans uppercase tracking-widest text-charcoal/60">01 — 03</span>
+                <div className="flex justify-between items-end mb-20 border-b border-dark/20 pb-8">
+                    <h2 className="font-serif text-4xl text-dark">Sélection</h2>
+                    <span className="text-sm font-sans uppercase tracking-widest text-dark/60">01 — 03</span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8">
